@@ -1,4 +1,4 @@
-def check_for_winner(table: list, sign) -> None:
+def check_for_winner(table: list, sign: str) -> bool:
     is_row_winner = check_row_winner(table, sign)
     is_col_winner = check_col_winner(table, sign)
     is_diagonal_winner = check_diagonal_winner(table, sign)
@@ -7,14 +7,14 @@ def check_for_winner(table: list, sign) -> None:
     return False
 
 
-def check_row_winner(table, sign):
+def check_row_winner(table: list, sign: str) -> bool:
     for curr_row in table:
         if curr_row.count(sign) == 3:
             return True
     return False
 
 
-def check_col_winner(table, sign):
+def check_col_winner(table: list, sign: str) -> bool:
     for col_idx in range(3):
         count = 0
         for row_idx in range(3):
@@ -25,7 +25,7 @@ def check_col_winner(table, sign):
     return False
 
 
-def check_diagonal_winner(table, sign):
+def check_diagonal_winner(table: list, sign: str) -> bool:
     count_primary = 0
     count_secondary = 0
     for index in range(3):
